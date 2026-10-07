@@ -221,3 +221,6 @@ __marimo__/
 
 #environment
 .env
+
+#log files
+logs/

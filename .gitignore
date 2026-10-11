@@ -224,3 +224,4 @@ __marimo__/
 
 #log files
 logs/
+.vscode

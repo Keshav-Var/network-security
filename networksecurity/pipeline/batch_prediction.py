@@ -20,5 +20,6 @@ class BatchPrediction:
         df = pd.read_csv(file.file)
         y_pred = self.final_model.predict(df)
         df['predicted_column'] = y_pred
+        os.makedirs("prediction_output", exist_ok=True)
         df.to_csv('prediction_output/output.csv')
         return df.to_html(classes='table table-striped')

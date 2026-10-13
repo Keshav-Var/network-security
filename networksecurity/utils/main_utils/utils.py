@@ -52,7 +52,7 @@ def save_object(file_path:str, obj:object)-> None:
     
 def load_object(file_path:str) -> object:
     try:
-        if not os.path.exists(file_obj):
+        if not os.path.exists(file_path):
             raise Exception(f"The file: {file_path} is not exist")
         with open(file_path,"rb") as file_obj:
             return pickle.load(file_obj)
@@ -71,7 +71,7 @@ def evaluate_models(X_train,y_train,X_test,y_test,models,param):
         report={}
         for i in range(len(list(models))):
             model = list(models.values())[i]
-            para = param[list(models.key())[i]]
+            para = param[list(models.keys())[i]]
 
             gs = GridSearchCV(model,para,cv=3)
             gs.fit(X_train,y_train)
@@ -85,7 +85,7 @@ def evaluate_models(X_train,y_train,X_test,y_test,models,param):
             train_model_score = r2_score(y_train,y_pred=y_train_pred)
             test_model_score = r2_score(y_true=y_test,y_pred=y_test_pred)
 
-            report[list(models.keys()[i])] = test_model_score
+            report[list(models.keys())[i]] = test_model_score
 
         return report
     except Exception as e:

@@ -225,3 +225,6 @@ __marimo__/
 #log files
 logs/
 .vscode
+mlruns
+mlflow.db
+Artifacts

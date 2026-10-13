@@ -58,7 +58,7 @@ async def predict_route(request:Request,file:UploadFile = File(...)):
     try:
         batch_prediction_obj = BatchPrediction()
         op_table_html = batch_prediction_obj.batch_prediction(file=file)
-        return templates.TemplateResponse("table.html", {"request": request, "table": op_table_html})
+        return templates.TemplateResponse(name="table.html",request=request, context={"table": op_table_html})
     except Exception as e:
         raise NetworkSecurityException(e,sys)
  
